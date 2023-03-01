@@ -76,6 +76,7 @@ This will show code coverage in output window.
 
 ### Design
 - Dependency injection is used to allow for easy testing and extensibility.
-- Graphic rendering is done using ASCII characters.  This is not the most efficient way to render graphics, but it is the easiest to implement and provides a good visual representation of the grid.
+- A grid drawing is shown to display initial and final coordinates. This is intended to enhance the solution and provide a graphic result for rover's navigation.
+- Grid drawing is done using ASCII characters.  This is not the most efficient way to render graphics, but it is the easiest to implement and provides a good visual representation of the grid.
 - Moq, FluentAssertions and Coverlet are used for testing, as they are the most popular and well supported libraries for testing in .NET Core.
 - Program is excluded from code coverage, as it is not testable.
