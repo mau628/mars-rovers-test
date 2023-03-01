@@ -2,8 +2,8 @@ namespace mars_rovers_tests;
 
 using FluentAssertions;
 
-using mars_rovers;
 using mars_rovers.ConsoleHandler;
+using mars_rovers.RoverNavigator;
 
 using Moq;
 
@@ -15,7 +15,20 @@ public class RoverNavigatorTests
     public void ShouldReturnValidValues()
     {
         // Given
-        var inputValues = new List<string> { "5 5", "1 2 N", "LMLMLMLMM", "3 3 E", "MMRMMRMRRM", "1 1 N", "MMRMLMMRMMMR", "3 3 W", "MMLMMRRR", "3 3 N", "RRRR" };
+        var inputValues = new List<string>
+        {
+            "5 5",
+            "1 2 N",
+            "LMLMLMLMM",
+            "3 3 E",
+            "MMRMMRMRRM",
+            "1 1 N",
+            "MMRMLMMRMMMR",
+            "3 3 W",
+            "MMLMMRRR",
+            "3 3 N",
+            "RRRR"
+        };
         var consoleHandlerMock = new Mock<IConsoleHandler>();
         var roverNavigator = new RoverNavigator(consoleHandlerMock.Object);
 

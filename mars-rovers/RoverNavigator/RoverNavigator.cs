@@ -1,4 +1,4 @@
-namespace mars_rovers;
+namespace mars_rovers.RoverNavigator;
 
 using System;
 using System.Collections.Generic;
@@ -17,8 +17,10 @@ public class RoverNavigator : IRoverNavigator
 
     public List<RoverInstructions> NavigateAll(List<string> inputValues)
     {
+        // The input values are stored in a queue. This makes it easier to read the values in pairs.
         var inputQueue = new Queue<string>(inputValues);
 
+        // The number of input values must be even excluding the first value (the grid size).
         if ((inputValues.Count - 1) % 2 != 0)
         {
             throw new ArgumentException("Invalid input. The number of input values must be even.");
@@ -27,9 +29,13 @@ public class RoverNavigator : IRoverNavigator
         var grid = new RoverGrid(inputQueue.Dequeue());
         var result = new List<RoverInstructions>();
 
+        // Navigate each rover.        
         while (inputQueue.Count > 0)
         {
+            // Values are read in pairs. The first value is the initial position of the rover and the second value is the instructions.
             var rover = new RoverInstructions(inputQueue.Dequeue(), inputQueue.Dequeue());
+
+            // Draw the grid and the initial position of the rover.
             _consoleHandler.Write($"Initial position (");
             _consoleHandler.ForegroundColor = ConsoleColor.Red;
             _consoleHandler.Write(rover.Direction.EndArrow);
@@ -51,6 +57,7 @@ public class RoverNavigator : IRoverNavigator
             );
             _consoleHandler.Write(rover.Direction.EndArrow);
 
+            // Navigate the rover.
             rover.Move();
 
             if (rover.Direction.X > grid.Width || rover.Direction.Y > grid.Height)
@@ -59,6 +66,7 @@ public class RoverNavigator : IRoverNavigator
             }
             result.Add(rover);
 
+            // Draw the final position of the rover.
             _consoleHandler.ForegroundColor = ConsoleColor.Green;
             _consoleHandler.SetCursorPosition(
                 (rover.Direction.X * 2) - 1,

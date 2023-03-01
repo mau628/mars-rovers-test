@@ -1,5 +1,8 @@
 namespace mars_rovers.ConsoleHandler;
 
+/// <summary>
+/// Interface for the console handler, used to abstract the console.
+/// </summary>
 public class ConsoleHandler : IConsoleHandler
 {
     public ConsoleColor ForegroundColor

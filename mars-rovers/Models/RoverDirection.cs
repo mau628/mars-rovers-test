@@ -38,6 +38,9 @@ public class RoverDirection
             _ => "",
         };
 
+    /// <summary>
+    /// Performs a rover turn to the left or right depending on the direction parameter.
+    /// </summary>
     public void Turn(char direction)
     {
         if (direction == RIGHT)
@@ -82,6 +85,9 @@ public class RoverDirection
         }
     }
 
+    /// <summary>
+    /// Moves the rover one step in the direction it is facing.
+    /// </summary>
     public void Move()
     {
         switch (Z)

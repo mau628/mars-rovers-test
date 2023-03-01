@@ -17,6 +17,9 @@ public class RoverInstructions
         _instructions = instructions.ToUpper().Trim();
     }
 
+    /// <summary>
+    /// Performs a rover movement based on the instructions.
+    /// </summary>
     public void Move()
     {
         foreach (var instruction in _instructions)

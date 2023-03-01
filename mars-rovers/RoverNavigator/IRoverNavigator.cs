@@ -1,4 +1,4 @@
-namespace mars_rovers;
+namespace mars_rovers.RoverNavigator;
 
 using System.Collections.Generic;
 
